@@ -1,14 +1,14 @@
 import React from 'react'
 import Header from '../../Components/User/Header/Header'
-import Banner from '../../Components/User/Banner/Banner'
-
-function Home() {
+import Profile from '../../Components/User/Profile/Profile'
+function ProfilePage() {
   return (
     <div>
         <Header/>
-        <Banner/>
+        <Profile/>
+      
     </div>
   )
 }
 
-export default Home
+export default ProfilePage

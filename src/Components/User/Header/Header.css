@@ -1,0 +1,34 @@
+.nav_header,.nav_header div,.nav_header div ul{
+    width: 100%;
+    height: 6.3rem;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(178, 172, 172);
+}
+.nav_header .logo{
+    margin-left: 2rem;
+    width: 6.3em;
+}
+
+.nav_header .nav{
+    width: 25%;    
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.nav_header .nav li a{
+    font-size: 20PX;
+    font-weight: 500;
+    cursor: pointer;
+}
+.nav li a:hover{
+    color: rgb(255, 255, 255);
+}
+@media all and (min-width: 1030px) {
+    .header {
+      width: 1030px;
+      min-width: 768px;
+    }
+  }
