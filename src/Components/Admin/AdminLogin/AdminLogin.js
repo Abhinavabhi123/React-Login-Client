@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import "./AdminLogin.css";
 import { useNavigate } from "react-router";
 import axios  from 'axios'
@@ -13,7 +13,13 @@ function AdminLogin() {
     const [password,setPassword] = useState('')
     const [errorMessage,setErrorMessage]=useState('')
     const [errMessage,setErrMessage]=useState('')
-  const submitHandler = (e) => {
+    const [passwordIsValid, setPasswordIsValid] = useState(true);
+    const [emailIsValid, setEmailIsValid] = useState(true);
+    
+    useEffect(()=>{setEmailIsValid(email.includes('@'))},[email])
+    useEffect(()=>{setPasswordIsValid(password.trim().length>3)},[password])
+    
+    const submitHandler = (e) => {
     e.preventDefault();
     if(email === ''){
         setErrMessage("Entered Email is Empty")
@@ -50,7 +56,7 @@ function AdminLogin() {
             onChange={(e)=>{setEmail(e.target.value) 
             setErrMessage('')}}
           />
-
+            {errMessage && <p style={{color:"red"}}>{errMessage}</p>}
           <input
             type="password"
             className="form-control"
@@ -62,6 +68,7 @@ function AdminLogin() {
             onChange={(e)=>{setPassword(e.target.value)
             setErrorMessage('')}}
           />
+          {errorMessage && <p style={{color:"red"}}>{errorMessage}</p>}
           <button type="submit" className="btn btn-lg btn-dark btn-block">Login</button>
         </form>
       </div>

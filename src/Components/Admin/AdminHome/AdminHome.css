@@ -1,0 +1,15 @@
+.search2{
+    display: flex;
+    justify-content: end;
+    padding-top: 16px;
+      padding-right: 70px;
+    
+  }
+  .table{
+    margin-left: 70px  !important;
+  width: 90%;
+  
+  }
+  .font{
+    color: white;
+  }
