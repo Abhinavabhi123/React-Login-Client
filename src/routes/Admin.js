@@ -5,6 +5,7 @@ import { useCookies } from 'react-cookie'
 import { useDispatch, useSelector } from 'react-redux'
 import { AdminAction } from '../Store/AdminAuth'
 import AdminHome from '../pages/Admin/AdminHome'
+import AdminEdit from '../pages/Admin/AdminEdit'
 
 function Admin() {
     const [cookies,setcookies]=useCookies(['jwt'])
@@ -21,6 +22,7 @@ function Admin() {
         <Routes>
                 <Route path='/' element={Admin ?<AdminHome/> :<AdminLogin/>}/>
                 <Route path='/AdminLogin'  element={Admin ? <AdminHome/> : <AdminLogin/>} />
+                <Route path='/editUser' element={Admin ? <AdminEdit/> : <AdminLogin/>}/>
         </Routes>
       
     </div>
