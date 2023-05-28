@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router";
 import axios from 'axios'
 import {adminApi }from "../../../Store/Api"
+import "./AdminHome.css"
 
 function AdminHome() {
   const navigate = useNavigate();
@@ -49,6 +50,8 @@ function AdminHome() {
   console.log(userData)
 
   return (
+    <div className="table-wrapper">
+
     <div className="table">
       <div className="search2">
         <input
@@ -61,7 +64,7 @@ function AdminHome() {
       </div>
 
       <Table className="mt-3 "  bordered >
-        <thead style={{ color: "white" }}>
+        <thead style={{ color: "black" }}>
           <tr>
             <th>Sl.no</th>
             <th>Name</th>
@@ -70,11 +73,11 @@ function AdminHome() {
             <th>Delete </th>
           </tr>
         </thead>
-        <tbody className="values " style={{ color: "white" }}>
+        <tbody className="values " style={{ color: "black" }}>
           {userData.map((obj, index) => {
             return (
               <tr>
-                <td style={{color:"white"}}>{index + 1}</td>
+                <td style={{color:"black"}}>{index + 1}</td>
                 <td>{obj.firstName} {obj.lastName}</td>
                 <td>{obj.email}</td>
                 <td>
@@ -96,6 +99,7 @@ function AdminHome() {
         </tbody>
       </Table>
     </div>
+          </div>
   );
 }
 

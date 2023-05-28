@@ -24,7 +24,7 @@ function User() {
             <Route path='/' element={<Home/>}/> 
             <Route path='/login' element={userToken ? <Home/> : <Login/>}/>
             <Route path='/register' element={userToken ? <Home/> : <Register/>}/>
-            <Route path='/profile' element={userToken? <Profile/> :<Home/>}/>
+            <Route path='/profile' element={userToken? <Profile/> : <Home/>}/>
         </Routes>
     </div>
   )

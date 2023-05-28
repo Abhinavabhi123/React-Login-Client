@@ -1,60 +1,58 @@
-import React from 'react'
-import "./Profile.css"
+import React, { useEffect, useState } from "react";
+import "./Profile.css";
+import axios from "axios";
+import { userApi } from "../../../Store/Api";
 
 function Profile() {
-  return (
-    
-    <div className="wrapper">
-      <div className="profile-card js-profile-card">
-        <div className="profile-card__img">
-          
-          <img src="" alt="profile card" />
-        </div>
-
-        <div className="profile-card__cnt js-profile-cnt">
-          <div className="profile-card__name"></div>
-          <div className="profile-card__txt"><strong></strong></div>
-          <div className="profile-card-loc">
-          </div>
-          <div className="profile-card-ctr">
-            <button className="profile-card__button button--blue js-message-btn">Change</button>
-            <button className="profile-card__button button--orange">Back</button>
-          </div>
-        </div>
-
-      
-          <div className="js-message active">
-            <form className="profile-card-form" >
-              <div className="profile-card-form__container">
-                <div className='upload'>
-                <img  src="" alt="" />
-                <div className='round'>
-                  <input type="file" name='image'/>
-                  <i className='fa fa-camera' ></i>
-                </div>
-                </div>
-                
-              
-              </div>
-
-              <div className="profile-card-form__bottom">
-                <button className="profile-card__button button--blue js-message-close" type='submit'>
-                  Update
-                </button>
-
-                <button className="profile-card__button button--gray js-message-close" >
-                  Cancel
-                </button>
-              </div>
-            </form>
-
-            <div className="profile-card__overlay js-message-close"></div>
-          </div>
-        )
-      </div>
-    </div>
-
-  )
+  const [userData, setUserData] = useState({});
+  const [open, setOpen] = useState(false);
+  const [image, setImage] = useState(null);
+  const [preview,setPreview]=useState("")
+  useEffect(() => {
+    axios
+      .get(`${userApi}profile`, { withCredentials: true })
+      .then((response) => {
+        setUserData(response.data.user[0]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  console.log(userData.firstName, "user heRE");
+  const handleImage=(event)=>{
+    const file = event.target.file
+    const url = URL.createObjectURL(file)
+    setImage(file)
+    setPreview(url)
+  }
+const submitUpdates=(e)=>{
+  e.preventDefault()
+  const formData = new FormData();
 }
 
-export default Profile
+  return (
+    <div className="profile-wrapper ">
+      <div class="card">
+        <div class="card-info">
+          
+          {open ? (
+            <div class="card-avatar" style={{ backgroundColor: "red" }}></div>
+          ) : (
+            <div>hello</div>
+          )}
+          <input type="file" onChange={handleImage} id="myFile" class="file-input" />
+          <label for="myFile" className="mb-2">
+            Upload Image
+          </label>
+          <div class="card-title">
+            {userData ? `${userData.firstName} ${userData.lastName}` : ""}
+          </div>
+          <div class="card-subtitle">{userData ? userData.email : ""}</div>
+        </div>
+        <button className="btn btn-primary mt-3" onClick={submitUpdates}>Save</button>
+      </div>
+    </div>
+  );
+}
+
+export default Profile;

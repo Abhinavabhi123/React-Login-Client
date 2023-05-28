@@ -2,9 +2,10 @@ import React,{useState,useRef} from "react";
 import "./AdminEditUser.css";
 import axios from "axios"
 import { adminApi } from "../../../Store/Api";
-import { useLocation, useNavigate } from "react-router";
+import { Navigate, useLocation, useNavigate } from "react-router";
 
 function AdminEditUser() {
+   const navigate=useNavigate()
   const location = useLocation();
   const [error,setError]=useState('')
   const editFname=useRef()
@@ -26,7 +27,12 @@ function AdminEditUser() {
             editedUserLname,
             editedUserEmail
         },{withCredentials:true}).then((response)=>{
-            
+            console.log(response.data);
+            if(response.data.edited){
+                navigate('/admin')
+            }else{
+                setError(response.data.message)
+            }
         })
     }else{
         setError("Some Field are Empty")
@@ -85,7 +91,7 @@ function AdminEditUser() {
           <small className="text-danger"></small>
         </div>
         {error.length > 0 && <a style={{ color: 'red' }}  >{error}</a>}
-        <div className="text-center">
+        <div className="text-center mt-2">
           <button
             id="btn-submit"
             type="button"
