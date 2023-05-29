@@ -1,5 +1,5 @@
 body{
-    background-image: linear-gradient(to right top, #051937, #0e173c, #1a133e, #260d3f, #33023d);
+    /* background-image: linear-gradient(to right top, #051937, #0e173c, #1a133e, #260d3f, #33023d); */
         overflow: hidden;
     }
  
@@ -13,7 +13,8 @@ body{
     
     .form-signin{
         max-width: 380px;
-        background-image: linear-gradient(#3f5efb,#fc466b);
+        background: linear-gradient(to bottom right, blue, pink);
+        /* background-image: linear-gradient(#3f5efb,#fc466b); */
         margin: 0 auto;
         background-color: #fff;
         padding: 15px 40px 50px;

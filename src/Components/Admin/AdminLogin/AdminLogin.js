@@ -69,7 +69,7 @@ function AdminLogin() {
             setErrorMessage('')}}
           />
           {errorMessage && <p style={{color:"red"}}>{errorMessage}</p>}
-          <button type="submit" className="btn btn-lg btn-dark btn-block">Login</button>
+          <button type="submit" className="btn btn-lg btn-primary btn-block">Login</button>
         </form>
       </div>
     </div>

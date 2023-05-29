@@ -27,7 +27,7 @@
 
 /*Image*/
 .card-avatar {
-  background: linear-gradient(to top, #f1e1c1 0%, #fcbc97 100%);
+  /* background: linear-gradient(to top, #f1e1c1 0%, #fcbc97 100%); */
   width: 10rem;
   height: 10rem;
   border-radius: 50%;

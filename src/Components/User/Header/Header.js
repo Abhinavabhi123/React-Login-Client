@@ -11,7 +11,8 @@ function Header() {
   const dispatch = useDispatch();
   const [cookie, setCookie, removeCookie] = useCookies(["jwt"]);
   let user = useSelector((state) => state.user.useToken);
-  let userName = useSelector((state) => state.user.userName);
+  let userName = useSelector((state) => state.user.firstName);
+  console.log(userName,"name Here");
   const UserLogout = () => {
     removeCookie("jwt");
     dispatch(UserActions.userLogout());
@@ -19,10 +20,10 @@ function Header() {
   };
   user = "Abhinav";
   userName = "Abhinav";
-  console.log(userName, "ooo");
   return (
     <header className="nav_header">
       <div>
+       
         <img
           className="logo"
           src="https://t4.ftcdn.net/jpg/04/72/34/21/360_F_472342109_w3xPTE23Vehlk6C3eQLas4cuyrzrVc01.jpg"

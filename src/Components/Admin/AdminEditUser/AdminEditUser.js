@@ -90,7 +90,7 @@ function AdminEditUser() {
         <div className="text-center">
           <small className="text-danger"></small>
         </div>
-        {error.length > 0 && <a style={{ color: 'red' }}  >{error}</a>}
+        {error.length > 0 && <p style={{ color: 'red' }}  >{error}</p>}
         <div className="text-center mt-2">
           <button
             id="btn-submit"

@@ -41,7 +41,7 @@ function AdminHeader() {
                 className="nav-item"
               >
                 <p
-                  style={{ color: "white" }}
+                  style={{ color: "black",fontWeight:"bold" }}
                   id="home"
                   className="nav-link active"
                   aria-current="page"
