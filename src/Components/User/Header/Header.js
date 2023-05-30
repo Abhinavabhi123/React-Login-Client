@@ -30,11 +30,11 @@ function Header() {
           alt="logo"
         />
       </div>
-      <div>
+      <div className="heading-middle">
         {user ? (
-          <h1 style={{ color: "red" }}>Hi..{userName}</h1>
+          <h1 style={{ color: "black" }}>Hi..{userName}</h1>
         ) : (
-          <h1 style={{ color: "red" }}>Hi There!</h1>
+          <h1 style={{ color: "black" }}>Hi There!</h1>
         )}
         <ul className="nav">
           {user ? (

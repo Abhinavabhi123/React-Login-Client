@@ -2,7 +2,7 @@ import React,{useState,useRef} from "react";
 import "./AdminEditUser.css";
 import axios from "axios"
 import { adminApi } from "../../../Store/Api";
-import { Navigate, useLocation, useNavigate } from "react-router";
+import {useLocation, useNavigate } from "react-router";
 
 function AdminEditUser() {
    const navigate=useNavigate()
